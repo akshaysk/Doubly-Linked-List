@@ -1,0 +1,70 @@
+***********************************************************
+	Name: Akshay Sanjay Kale
+	Course: Operating Systems (CS 402) AM Section
+***********************************************************	
+
+This file describes how to make use of the warmup1 assignment code you have at your disposal.
+
+1]Source code Files:
+1. Header Files:
+	1.1 cs402.h
+	1.2 my402list.h	
+	1.3 my402listrecord.h
+
+2. C files:
+	2.1 listtest.c
+	2.2 my402list.c
+	2.3 my402listsort.c
+
+3. Makefile
+
+
+2]Instructions to Compile code:
+1. make warmup1
+	Creates warmup1 executable
+
+2. make listtest
+	Creates listtest executable
+
+3. make clean
+	Deletes all temporary object files and executables
+
+
+
+
+3]Description of source files
+
+1. my402listrecord.h
+	Contains function declarations of the functions used in my402listsort.c. Also it contains definition of user defined linklist object and some macro definitions.
+ 
+2. my402list.c
+	Includes implementation of doubly linked circular list. List funtionalities are Init(), First(), Last(), Next(), Prev(), Append(), Prepend(), etc.
+
+3. my402listsort.c
+	Includes second part of the assignment i.e to read records from the input file and create a sorted linkedlist.  
+	Description of the functions in my402listsort.c is as follows:
+	3.1 int CHECK_SIGN(char ); 
+		This function checks the format of the sign field of each transaction record. Sign field should either be '+' or '-'.
+	3.2 int CHECK_TIMESTAMP(char *);
+		This function checks the format of the timestamp field of each transaction record. Timestamp field's length should be 10. 
+		Timestamp value should be between 0 and current timestamp value.
+	3.3 int CHECK_DESCRIPTION(char *);
+		This function checks the format of the description field of the transaction record. It initially trims the leading blank characters.
+		Also checks if the description size is way big.	
+	3.4 int CHECK_AMOUNT(char *);
+		This function checks the format of the amount field of the transaction record. Checks if the field is blank or if it exceeds the max
+		length of the field.
+	3.5 char *with_commas(char *);
+		This function formats the amount/balance field by adding commas.
+	3.6 FILE *ParseInput(int , char **);
+		This function checks for any errors in commandline.
+	3.7 My402ListRecord *My402CheckFormat(char *);
+		This function scans the records line by line and do the error checking in the format.
+	3.8 My402ListElem* My402FindObjectPlace(My402List *,My402ListRecord *);
+		This function returns the correct place in the list where the record is to be inserted.
+	3.9 Printline(), Printheader() and PrintRecord(): 
+		These functions do the job of proper formatting and displaying of the output.   	
+	 
+	
+
+
